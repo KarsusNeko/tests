@@ -7,4 +7,4 @@ baka: $(OBJS)
 baka.o: baka.c baka.h
 	$(CC) $(CFLAGS) -c baka.c
 clean:
-	rm -rf baka baka.exe $(OBJ)
+	rm -rf baka $(OBJ)
