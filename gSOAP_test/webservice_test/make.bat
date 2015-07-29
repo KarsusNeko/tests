@@ -1,0 +1,1 @@
+soapcpp2.exe -S -x -L -b demo.h

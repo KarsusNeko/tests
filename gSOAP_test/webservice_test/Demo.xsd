@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <schema targetNamespace="urn:demo"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:demo="urn:demo"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <!-- operation request element -->
+  <element name="AddA">
+   <complexType>
+    <sequence>
+     <element name="a" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- demo__AddA::a -->
+     <element name="b" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- demo__AddA::b -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="AddAResponse">
+   <complexType>
+    <sequence>
+     <element name="res" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- demo__AddA::res -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="AddB">
+   <complexType>
+    <sequence>
+     <element name="a" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- demo__AddB::a -->
+     <element name="b" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- demo__AddB::b -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="AddBResponse">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="AddC">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="Result">
+   <complexType>
+    <sequence>
+     <element name="a" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- demo__Result::a -->
+     <element name="b" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- demo__Result::b -->
+     <element name="res" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- demo__Result::res -->
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+
