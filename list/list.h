@@ -1,12 +1,15 @@
 #ifndef __LIST_H
 #define __LIST_H
 
-typedef int _list_node
+#undef	NULL
+#define NULL	((void*)0)
+
+typedef struct _list_node
 {
 	struct _list_node* next;
 } list_node;
 
-typedef int _list
+typedef struct _list
 {
 	list_node*	head;
 	list_node*	tail;
@@ -20,3 +23,5 @@ list_node* list_find(list* l, list_node* ln, compar func);
 void list_append(list* l, list_node* ln);
 list_node* list_remove(list* l, list_node* ln, compar func);
 void list_travel(list* l, info print_info);
+
+#endif // __LIST_H

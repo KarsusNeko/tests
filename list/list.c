@@ -6,14 +6,14 @@ void list_init(list* l)
 	l->tail	= NULL;
 }
 
-list_node* list_find(list* l, list_node* ln)
+list_node* list_find(list* l, list_node* ln, compar func)
 {
 	list_node* tmp = l->head;
 	
 	if(tmp == NULL)
 		return NULL;
 	
-	if(func(ln, tmp))
+	if(!func(ln, tmp))
 		return tmp;
 	
 	while(tmp->next != NULL)
@@ -26,7 +26,7 @@ list_node* list_find(list* l, list_node* ln)
 
 void list_append(list* l, list_node* ln)
 {
-	if(l->head == NULL && l->tail == NULL)
+	if(l->head == NULL)
 	{
 		l->head			= ln;
 		l->tail			= ln;
@@ -47,7 +47,7 @@ list_node* list_remove(list* l, list_node* ln, compar func)
 	if(tmp == NULL)
 		return tmp;
 
-	if(func(ln, tmp))
+	if(!func(ln, tmp))
 	{
 		l->head	= NULL;
 		l->tail	= NULL;
@@ -56,14 +56,22 @@ list_node* list_remove(list* l, list_node* ln, compar func)
 
 	while(tmp->next != NULL)
 	{
-		if(!func(ln, tmp->next))
+		if(func(ln, tmp->next) != 0)
 		{
 			tmp = tmp->next;
 		}
 		else
 		{
 			rmv = tmp->next;
-			tmp->next = rmv->next;
+			if(rmv->next)
+			{
+				tmp->next = rmv->next;
+			}
+			else
+			{
+				tmp->next = NULL;
+				l->tail = tmp;
+			}
 			return rmv;
 		}
 	}
@@ -76,5 +84,10 @@ void list_travel(list* l, info print_info)
 	list_node* tmp = l->head;
 
 	if(tmp == NULL)
-		return tmp;
+		return;
+	do
+	{
+		print_info(tmp);
+		tmp = tmp->next;
+	}while(tmp != NULL);
 }
