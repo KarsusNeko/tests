@@ -2,6 +2,11 @@
 
 dev_list __dev_lst;
 
+void dev_init()
+{
+    dev_list_init(&__dev_lst);
+}
+
 void dev_register(dev_node* dev_node)
 {
 	dev_list_append(&__dev_lst, dev_node);

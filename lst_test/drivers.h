@@ -1,8 +1,11 @@
 #ifndef __DRIVERS_H
 #define __DRIVERS_H
 
+#include "dev_list.h"
+
 extern dev_list __dev_lst;
 
+void dev_init();
 void dev_register(dev_node* dev_node);
 int dev_unregister(char* name);
 

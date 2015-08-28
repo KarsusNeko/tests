@@ -1,6 +1,8 @@
 #ifndef __DEV_LIST_H
 #define __DEV_LIST_H
 
+#include "list.h"
+
 typedef struct _dev_ops
 {
 	// To save private data
