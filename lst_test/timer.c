@@ -51,7 +51,8 @@ void timer_workflow()
 		if( curs->ticks <= ticks )
 		{
 			curs->task(curs->arg);
-			curs = timer_list_remove(&__tmr_lst, curs);
+			if(curs->ticks <= ticks)
+				curs = timer_list_remove(&__tmr_lst, curs);
 		}
 		else
 		{

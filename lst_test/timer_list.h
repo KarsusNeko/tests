@@ -4,7 +4,7 @@
 #include "list.h"
 
 // At first I suppose a work mode such as work once  or
-// work periodicly flag may be better. But then I find
+// work periodically flag may be better. But then I find
 // that we can handle this outside the timer so I delete
 // this field.
 typedef struct _timer
