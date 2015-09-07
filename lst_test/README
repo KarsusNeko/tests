@@ -1,0 +1,9 @@
+INTRO
+A simple framework. Now they're distinguished by name strings,
+but a distinct id may be better.
+
+TODO
+1. dev test
+   gcc -o dev_test list.c drivers.c driver_test.c dev_list.c 
+2. timer test
+   gcc -o timer_test list.c timer_list.c timer.c timer_test.c
