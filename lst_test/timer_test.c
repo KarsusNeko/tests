@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "timer.h"
 
 unsigned long ticks;
 
@@ -14,19 +15,21 @@ void hndlr_1(void *arg)
 void hndlr_2(void *arg)
 {
 	timer* tmp = (timer*)arg;
-	timer->ticks += ticks;
+	tmp->ticks += 200;
 	
 	printf("handler2 triggered at %d.\n", ticks);
 }
 
 int main(void)
 {
-	if(timer_create(&timer1, "timer1", 100, hndlr_1, 32) < 0)
+    int a = 32;
+
+	if(timer_create(&timer1, "timer1", 100, hndlr_1, &a) < 0)
 	{
 		printf("failed to create timer1.\n");
 	}
 	
-	if(timer_create(&timer2, "timer2", 200, hndlr_2, timer2))
+	if(timer_create(&timer2, "timer2", 200, hndlr_2, &timer2) < 0)
 	{
 		printf("failed to create timer2.\n");
 	}

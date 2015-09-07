@@ -7,7 +7,7 @@ int timer_cmp(list_node* ln1, list_node* ln2)
 	timer* tm2;
 
 	tm1 = (timer*)ln1;
-	tm2 = (timer*)ln2
+	tm2 = (timer*)ln2;
 
 	return (strcmp(tm1->name, tm2->name));
 }

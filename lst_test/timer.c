@@ -12,7 +12,7 @@ int timer_create(timer* timer,
 	if(tick < ticks)
 		return -1;
 
-	timer->ticks	= ticks;
+	timer->ticks	= tick;
 	timer->task		= hndlr;
 	timer->arg		= arg;
 	strcpy(timer->name, name);
@@ -22,12 +22,12 @@ int timer_create(timer* timer,
 
 void timer_register(timer* timer)
 {
-	timer_list_append(&__tmr_lst, timer);
+	timer_append(&__tmr_lst, timer);
 }
 
 void timer_unregister(char* name)
 {
-	timer_list_remove(&__tmr_lst, name);
+	timer_remove(&__tmr_lst, name);
 }
 
 void timer_init()
@@ -44,15 +44,15 @@ void timer_workflow()
 {
 	timer* curs;
 
-	curs = (timer*)&__tmr_lst->head;
+	curs = (timer*)(__tmr_lst.head);
 
 	while(curs != NULL)
 	{
-		if( curs->ticks <= ticks )
+		if( curs->ticks == ticks )
 		{
 			curs->task(curs->arg);
 			if(curs->ticks <= ticks)
-				curs = timer_list_remove(&__tmr_lst, curs);
+				curs = timer_remove(&__tmr_lst, curs);
 		}
 		else
 		{
